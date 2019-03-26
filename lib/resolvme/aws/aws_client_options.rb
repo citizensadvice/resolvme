@@ -11,7 +11,7 @@ module Resolvme
         klass.new(client_opts)
       end
 
-      def aws_client(service_id, region)
+      def aws_client(service_id, region = nil)
         regional_client_id = "#{region}_#{service_id}"
         regional_clients[regional_client_id] ||= aws_client_instance(service_id, region)
       end
