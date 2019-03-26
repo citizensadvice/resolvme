@@ -1,4 +1,4 @@
-require "bundler/setup"
+require "rspec"
 require "resolvme"
 
 RSpec.configure do |config|
