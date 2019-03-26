@@ -36,4 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry-byebug"
   spec.add_dependency "vault"
   spec.add_dependency "aws-sdk-cloudformation"
+  spec.add_dependency "aws-sdk-acm"
 end
