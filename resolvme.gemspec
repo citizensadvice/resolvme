@@ -1,11 +1,10 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "resolvme/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "resolvme"
-  spec.version       = Resolvme::VERSION
+  spec.version       = "0.1.0"
   spec.authors       = ["Michele Sorcinelli"]
   spec.email         = ["michele.sorcinelli@citizensadvice.org.uk"]
 
@@ -36,4 +35,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
   spec.add_development_dependency "pry-byebug"
   spec.add_dependency "vault"
+  spec.add_dependency "aws-sdk-cloudformation"
 end

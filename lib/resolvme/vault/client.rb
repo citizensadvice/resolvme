@@ -3,7 +3,7 @@ require "vault"
 
 module Resolvme
   module Vault
-    class Vault
+    class Client
       class VaultKeyNotFoundException < StandardError; end
 
       def get_secret(path, query)
