@@ -4,7 +4,7 @@ require "vault"
 module Resolvme
   module Vault
     class Client
-      class VaultKeyNotFoundException < StandardError; end
+      class VaultKeyNotFoundException < ::ResolvmeError; end
 
       def get_secret(path, query)
         query_keys = query.split("/").map(&:to_sym)
@@ -20,7 +20,6 @@ module Resolvme
         val = cache[path][query]
         return val unless val.nil?
         cache[path][query] = vault_secret(path, query_keys)
-        cache[path][query]
       end
 
       private
@@ -66,9 +65,6 @@ module Resolvme
         val
       end
 
-      def self.config_root
-        File.expand_path("../infrastructure/cfn/product_blueprints/vault", __dir__)
-      end
     end
   end
 end

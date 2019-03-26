@@ -18,7 +18,7 @@ module Resolvme
       # @return [String] certificate ARN
       def acm_arn(domain_name, region = nil)
         fd = filtered_details(domain_name, region)
-        raise StandardError, "Couldn't find a valid certificate for #{domain_name}" if fd.empty?
+        raise ResolvmeError, "Couldn't find a valid certificate for #{domain_name}" if fd.empty?
         fd.sort_by(&:issued_at).last.certificate_arn
       end
 
