@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require "resolvme/world"
+require "resolvme"
 require "erb"
 
 puts(ERB.new(STDIN.read).result)
