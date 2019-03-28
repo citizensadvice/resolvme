@@ -4,4 +4,4 @@
 require "resolvme"
 require "erb"
 
-puts(ERB.new(STDIN.read).result)
+puts(ERB.new(STDIN.read).result(Resolvme::Context.get_binding))

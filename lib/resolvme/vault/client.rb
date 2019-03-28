@@ -5,9 +5,9 @@ module Resolvme
   module Vault
     class Client
       # Secret with the given path not found
-      class VaultSecretNotFound < ::ResolvmeError; end
+      class VaultSecretNotFound < ResolvmeError; end
       # Field with the given key not found inside the secret
-      class VaultKeyNotFound < ::ResolvmeError; end
+      class VaultKeyNotFound < ResolvmeError; end
 
       # Read the secret at the provided path and return the value
       # of the field with the provided key.
