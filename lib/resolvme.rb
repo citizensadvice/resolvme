@@ -1,5 +1,6 @@
-# Generic error
+# frozen_string_literal: true
 module Resolvme
+  # Generic error
   class ResolvmeError < StandardError; end
 
   require "resolvme/vault/client"
@@ -26,7 +27,7 @@ module Resolvme
         acm.acm_arn(domain, region)
       end
 
-      # expose bindings to be used by erb or other programs
+      # Expose bindings to be used by ERB or other programs
       def get_binding; binding; end
     end
   end
