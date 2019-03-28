@@ -1,43 +1,41 @@
 # Resolvme
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/resolvme`. To experiment with that code, run `bin/console` for an interactive prompt.
+Resolvme is a collection of resolver that can be used:
 
-TODO: Delete this and the text above, and describe your gem
+- with the command line tool to render ERB based templates
+- as a gem, to import and use specific resolvers in your application
 
-## Installation
+## Example
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'resolvme'
+```
+  This is a vault key: <%= vault('/secret/my-secret', 'my-field') %>
+  This is a stack output: <%= cf_stack_output('my-cloudformation-stack', 'MyOutputName') %>
+  This is a certificate arn: <%= acm_cert_arn('*.example.org') %>
 ```
 
-And then execute:
+Because ERB is used in the main object, you're free to use all the potential of
+the ruby programming language, but make sure the input comes from trusted
+sources (as the input is real code that runs in the ruby interpreter).
 
-    $ bundle
+## Setup
 
-Or install it yourself as:
-
-    $ gem install resolvme
+Run `bundle install`
 
 ## Usage
 
-TODO: Write usage instructions here
+Template files are read from the standard input and rendered into the standard output, so
+you need to use I/O redirection in your shell to read/write from/to files. You can also
+use a process substitution pattern to pass the output as a file to another process.
 
-## Development
+### Examples
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```bash
+# work with files
+$ resolvme < template > out
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+# work with helm
+$ helm install my-chart -f <(resolvme < override-template)
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/resolvme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Resolvme project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/resolvme/blob/master/CODE_OF_CONDUCT.md).
+# pipe into kubectl
+$ resolvme < template | kubectl apply -f -
+```
