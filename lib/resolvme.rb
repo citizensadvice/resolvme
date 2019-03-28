@@ -1,9 +1,9 @@
+# Generic error
+class ResolvmeError < StandardError; end
+
 require "resolvme/vault/client"
 require "resolvme/aws/cf_stack_output"
 require "resolvme/aws/acm_cert_arn"
-
-# Generic error
-class ResolvmeError < StandardError; end
 
 # Wrapper for {::Resolvme::Vault::Client#get_secret}
 def vault(path, key)
