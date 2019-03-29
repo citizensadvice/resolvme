@@ -6,8 +6,8 @@ RSpec.describe Resolvme::Aws::CloudformationStackOutput do
     subject.stub_responses = true
     client = subject.aws_client(:CloudFormation)
     client.stub_responses(
-      :describe_stacks, 
-      stacks: 
+      :describe_stacks,
+      stacks:
         [
           {
             stack_name: 'foostack',
