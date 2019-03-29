@@ -9,6 +9,7 @@ module Resolvme
       # Field with the given key not found inside the secret
       class VaultKeyNotFound < ResolvmeError; end
 
+      attr_reader :vault
       # Read the secret at the provided path and return the value
       # of the field with the provided key.
       #
