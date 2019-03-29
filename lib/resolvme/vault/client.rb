@@ -17,13 +17,13 @@ module Resolvme
       # @raise [VaultSecretNotFound]
       # @raise [VaultKeyNotFound]
       # @return [Object] field value
-      def get_secret(path, key)
-        secret = fetch_secret(path)
+      def read_secret_field(path, key)
+        secret = read_secret(path)
         raise VaultSecretNotFound,
               "Secret #{path} not found" unless secret
         value = secret.data[key.to_sym]
         raise VaultKeyNotFound,
-              "Secret #{path} doesn't have this key: #{key}" unless value
+              "Secret #{path} doesn't have field: #{key}" unless value
         value
       end
 
@@ -38,10 +38,8 @@ module Resolvme
         @cache = {}
       end
 
-      private
-
       # Fetches the secret from the cache or from Vault if not cached.
-      def fetch_secret(path)
+      def read_secret(path)
         @cache[path] ||= @vault.logical.read(path)
       end
     end

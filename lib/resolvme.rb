@@ -12,7 +12,7 @@ module Resolvme
       # Wrapper for {::Resolvme::Vault::Client#get_secret}
       def vault(path, key)
         @vault ||= ::Resolvme::Vault::Client.new
-        @vault.get_secret(path, key)
+        @vault.read_secret_field(path, key)
       end
 
       # Wrapper for {::Resolvme::Aws::CloudformationStackOutput#get_stack_output}
