@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    resolvme (0.1.0)
+    resolvme (0.1.1)
       aws-sdk-acm
       aws-sdk-cloudformation
       vault
@@ -10,14 +10,14 @@ GEM
   remote: https://rubygems.org/
   specs:
     aws-eventstream (1.0.2)
-    aws-partitions (1.146.0)
+    aws-partitions (1.148.0)
     aws-sdk-acm (1.18.0)
       aws-sdk-core (~> 3, >= 3.48.2)
       aws-sigv4 (~> 1.1)
     aws-sdk-cloudformation (1.18.0)
       aws-sdk-core (~> 3, >= 3.48.2)
       aws-sigv4 (~> 1.1)
-    aws-sdk-core (3.48.2)
+    aws-sdk-core (3.48.3)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.1)
@@ -36,6 +36,7 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.10)
     rake (10.5.0)
+    rdoc (6.1.0)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -61,6 +62,7 @@ DEPENDENCIES
   pry
   pry-byebug
   rake (~> 10.0)
+  rdoc
   resolvme!
   rspec (~> 3.7)
   yard
