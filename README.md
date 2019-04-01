@@ -8,9 +8,9 @@ Resolvme is a collection of resolver that can be used:
 ## Example
 
 ```
-  This is a vault key: <%= vault('/secret/my-secret', 'my-field') %>
-  This is a stack output: <%= cf_stack_output('my-cloudformation-stack', 'MyOutputName') %>
-  This is a certificate arn: <%= acm_cert_arn('*.example.org') %>
+This is a vault key: <%= vault('/secret/my-secret', 'my-field') %>
+This is a stack output: <%= cf_stack_output('my-cloudformation-stack', 'MyOutputName') %>
+This is a certificate arn: <%= acm_cert_arn('*.example.org') %>
 ```
 
 Because ERB is used in the main object, you're free to use all the potential of
