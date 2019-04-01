@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require "aws-sdk-acm"
+require "resolvme/error"
 require "resolvme/aws/aws_client_options"
 
 module Resolvme

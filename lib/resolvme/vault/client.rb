@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require "vault"
+require "resolvme/error"
 
 module Resolvme
   module Vault
