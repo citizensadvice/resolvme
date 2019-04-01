@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    resolvme (0.1.1)
+    resolvme (0.1.2)
       aws-sdk-acm
       aws-sdk-cloudformation
       vault
