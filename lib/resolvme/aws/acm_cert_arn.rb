@@ -23,8 +23,6 @@ module Resolvme
         certs.sort_by(&:issued_at).last.certificate_arn
       end
 
-      private
-
       # Retrieves and returns the details of the issued ACM certificates from AWS.
       # @return [Array] list of domain details
       def acm_certificates(region)
