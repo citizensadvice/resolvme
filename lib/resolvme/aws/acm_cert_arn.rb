@@ -40,7 +40,10 @@ module Resolvme
       # @return [Array] filtered list of domain details
       def domain_certificates(domain_name, region)
         acm_certificates(region).find_all do |cert|
-          cert.domain_name == domain_name || cert.subject_alternative_names.include?(domain_name)
+          cert.domain_name == domain_name ||
+            cert.domain_name == ("*." + domain_name) ||
+            cert.subject_alternative_names.include?(domain_name) ||
+            cert.subject_alternative_names.include?("*." + domain_name)
         end
       end
     end
