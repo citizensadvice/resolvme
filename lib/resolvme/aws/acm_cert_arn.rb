@@ -11,6 +11,8 @@ module Resolvme
     class AcmCertificateArn
       include AwsClientOptions
 
+      class CertificateNotFoundError < ResolvmeError; end
+
       # Returns the ARN of the latest issued certificate for the given domain
       # name. Raises an exception if the certificate can't be found on ACM
       #
@@ -19,7 +21,7 @@ module Resolvme
       # @return [String] certificate ARN
       def acm_arn(domain_name, region = nil)
         certs = domain_certificates(domain_name, region)
-        raise ResolvmeError, "Couldn't find a valid certificate for #{domain_name}" if certs.empty?
+        raise CertificateNotFoundError, "Couldn't find a valid certificate for #{domain_name}" if certs.empty?
         certs.sort_by(&:issued_at).last.certificate_arn
       end
 

@@ -16,6 +16,6 @@ RSpec.describe Resolvme::Aws::CloudformationStackOutput do
         ]
     )
     expect(subject.get_stack_output('foostack', 'Endpoint')).to eq('bar')
-    expect { subject.get_stack_output('foostack', 'SomeOutput') }.to raise_error(Resolvme::ResolvmeError, "Stack output foostack/SomeOutput not found")
+    expect { subject.get_stack_output('foostack', 'SomeOutput') }.to raise_error(Resolvme::Aws::CloudformationStackOutput::OutputNotFoundError, "Stack output foostack/SomeOutput not found")
   end
 end
