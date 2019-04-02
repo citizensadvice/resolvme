@@ -18,16 +18,16 @@ module Resolvme
       # @param region [String] AWS region
       # @return [String] certificate ARN
       def acm_arn(domain_name, region = nil)
-        fd = filtered_details(domain_name, region)
-        raise ResolvmeError, "Couldn't find a valid certificate for #{domain_name}" if fd.empty?
-        fd.sort_by(&:issued_at).last.certificate_arn
+        certs = domain_certificates(domain_name, region)
+        raise ResolvmeError, "Couldn't find a valid certificate for #{domain_name}" if certs.empty?
+        certs.sort_by(&:issued_at).last.certificate_arn
       end
 
       private
 
       # Retrieves and returns the details of the issued ACM certificates from AWS.
       # @return [Array] list of domain details
-      def cert_details(region)
+      def acm_certificates(region)
         acm = aws_client(:ACM, region)
         acm.list_certificates(certificate_statuses: ["ISSUED"]).certificate_summary_list.map do |cert|
           acm.describe_certificate(certificate_arn: cert.certificate_arn).certificate
@@ -40,8 +40,8 @@ module Resolvme
       # @param domain_name [String] domain name to filter
       # @param region [String] AWS region
       # @return [Array] filtered list of domain details
-      def filtered_details(domain_name, region)
-        cert_details(region).find_all do |cert|
+      def domain_certificates(domain_name, region)
+        acm_certificates(region).find_all do |cert|
           cert.domain_name == domain_name || cert.subject_alternative_names.include?(domain_name)
         end
       end
