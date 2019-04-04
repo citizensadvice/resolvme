@@ -1,0 +1,16 @@
+/.bundle/
+/.idea/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+/vendor/
+tags
+Dockerfile
+Jenkinsfile
+
+# rspec failure tracking
+.rspec_status
