@@ -1,1 +1,3 @@
 language: ruby
+before_install:
+  - gem install -v 2.0.1 bundler --no-doc
