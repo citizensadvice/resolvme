@@ -1,9 +1,7 @@
 FROM ruby:2.6.2-alpine
 
-RUN apk update && \
-    apk add git && \
-    gem install bundler && \
-    rm -rf /var/cache/apk/*
+RUN apk add --no-cache git && \
+    gem install bundler
 
 RUN adduser -D app && \
     mkdir /app && \
