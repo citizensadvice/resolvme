@@ -1,7 +1,19 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require "resolvme"
-require "erb"
+require 'resolvme'
+require 'erb'
 
-puts(ERB.new(STDIN.read, nil, '-').result(Resolvme::Context.get_binding))
+input = STDIN
+output = STDOUT
+n = ARGV.length
+
+if n > 0
+  input = File.open(ARGV[0], 'r')
+end
+
+if n > 1
+  output = File.open(ARGV[1], 'w')
+end
+
+output.write(ERB.new(input.read, nil, '-').result(Resolvme::Context.get_binding))
