@@ -8,7 +8,16 @@ input = STDIN
 output = STDOUT
 n = ARGV.length
 
+def print_usage()
+  puts(
+    "Usage: resolvme [input_file] [output_file]\n\n" +
+    "By default stdin and stdout are used"
+  )
+  exit(0)
+end
+
 if n > 0
+  print_usage() if (ARGV.include?('-h') or ARGV.include?('--help'))
   input = File.open(ARGV[0], 'r')
 end
 
