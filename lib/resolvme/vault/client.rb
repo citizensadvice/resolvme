@@ -23,10 +23,36 @@ module Resolvme
         secret = read_secret(path)
         raise VaultSecretNotFound,
               "Secret #{path} not found" unless secret
-        value = secret.data[key.to_sym]
+
+        value = payload(secret)[key.to_sym]
+
         raise VaultKeyNotFound,
               "Secret #{path} doesn't have field: #{key}" unless value
         value
+      end
+
+      # Retrieves the secret's value.
+      # Handles both KV1 and KV2 secret engines.
+      # @param secret [Vault::Secret] Vault secret
+      # @return [Object] the secret value
+      def payload(secret)
+        is_kv2?(secret) ? secret.data[:data] : secret.data
+      end
+
+      # Checks whether the specified mount is versioned.
+      # @param mount [Symbol] the mount path. Must end in /
+      def is_versioned?(mount)
+        mount_info[mount.to_sym].dig(:options, :version) ? true : false
+      end
+
+      # retrieves information about all mounts
+      def mount_info
+        vault.get "v1/sys/mounts"
+      end
+
+      # @return [TrueClass,FalseClass] true if the secret is KV2 and false otherwise
+      def is_kv2?(secret)
+        secret.data.dig(:metadata, :version)
       end
 
       # Initialize the object. The VAULT_GITHUB_TOKEN environment variable can
