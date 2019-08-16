@@ -11,7 +11,7 @@ module Resolvme
       class VaultKeyNotFound < ResolvmeError; end
 
       attr_reader :vault
-      # Read the secret at the provided path and return the value
+      # Read the secret at the provided path (trimming if nec) and return the value
       # of the field with the provided key.
       #
       # @param path [String] secret path
@@ -20,8 +20,9 @@ module Resolvme
       # @raise [VaultKeyNotFound]
       # @return [Object] field value
       def read_secret_field(path, key)
-        update_path_if_kv2!(path)
-        secret = read_secret(path)
+        trimmed_path = trimmed(path)
+        update_path_if_kv2!(trimmed_path)
+        secret = read_secret(trimmed_path)
         raise VaultSecretNotFound,
               "Secret #{path} not found" unless secret
 
@@ -81,7 +82,7 @@ module Resolvme
         end
       end
 
-      # Checks is the given path is on a mount using the KV2 engine
+      # Checks if the given path is on a mount using the KV2 engine
       # and caches the result in #cache
       def versioned_path?(path)
         mount = mount_point(path)
@@ -94,6 +95,11 @@ module Resolvme
       # This is the root node of the path including /
       def mount_point(path)
         path.split("/").first + "/"
+      end
+
+      # Trims the path if it begins with leading /
+      def trimmed(path)
+        path[0] == '/' ? path [1..-1] : path
       end
     end
   end
