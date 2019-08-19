@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require "vault"
+require "pathname"
 require "resolvme/error"
 
 module Resolvme
@@ -20,7 +21,7 @@ module Resolvme
       # @raise [VaultKeyNotFound]
       # @return [Object] field value
       def read_secret_field(path, key)
-        update_path_if_kv2!(path)
+        path = update_path_if_kv2(path)
         secret = read_secret(path)
         raise VaultSecretNotFound,
               "Secret #{path} not found" unless secret
@@ -74,14 +75,15 @@ module Resolvme
 
       # Updates the Vault path to include data/ if
       # if it is mounted on a KV v2 mount and doesn't include data/ already
-      def update_path_if_kv2!(path)
-        if versioned_path?(path) && path.split("/")[1] != "data"
-          mount = mount_point(path)
-          path.sub!(/^#{mount}/, "#{mount}data/")
+      def update_path_if_kv2(path)
+        if versioned_path?(path) && path_nodes(path)[1] != "data"
+          return path_nodes(path).insert(1, "data").join("/")
         end
+
+        path
       end
 
-      # Checks is the given path is on a mount using the KV2 engine
+      # Checks if the given path is on a mount using the KV2 engine
       # and caches the result in #cache
       def versioned_path?(path)
         mount = mount_point(path)
@@ -93,8 +95,15 @@ module Resolvme
       # @return [String] the mount point of the path.
       # This is the root node of the path including /
       def mount_point(path)
-        path.split("/").first + "/"
+        path_nodes(path).first + "/"
+      end
+
+      # @return [Array] an array with the nodes of the path, e.g.
+      # /secret/data/foo/bar -> ["secret", "data", "foo", "bar"]
+      def path_nodes(path)
+        Pathname.new(path).each_filename.to_a
       end
     end
   end
 end
+
