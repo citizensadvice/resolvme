@@ -21,7 +21,6 @@ module Resolvme
       # @raise [VaultKeyNotFound]
       # @return [Object] field value
       def read_secret_field(path, key)
-        path = update_path_if_kv2(path)
         secret = read_secret(path)
         raise VaultSecretNotFound,
               "Secret #{path} not found" unless secret
@@ -70,6 +69,7 @@ module Resolvme
 
       # Fetches the secret from the cache or from Vault if not cached.
       def read_secret(path)
+        path = update_path_if_kv2(path)
         @cache[path] ||= @vault.logical.read(path)
       end
 
