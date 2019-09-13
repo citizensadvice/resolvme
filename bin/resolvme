@@ -1,7 +1,28 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require "resolvme"
-require "erb"
+require 'resolvme'
+require 'erb'
 
-puts(ERB.new(STDIN.read, nil, '-').result(Resolvme::Context.get_binding))
+input = STDIN
+output = STDOUT
+n = ARGV.length
+
+def print_usage()
+  puts(
+    "Usage: resolvme [input_file] [output_file]\n\n" +
+    "By default stdin and stdout are used"
+  )
+  exit(0)
+end
+
+if n > 0
+  print_usage() if (ARGV.include?('-h') or ARGV.include?('--help'))
+  input = File.open(ARGV[0], 'r')
+end
+
+if n > 1
+  output = File.open(ARGV[1], 'w')
+end
+
+output.write(ERB.new(input.read, nil, '-').result(Resolvme::Context.get_binding))

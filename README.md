@@ -23,14 +23,20 @@ Run `bundle install`
 
 ## Usage
 
-Template files are read from the standard input and rendered into the standard output, so
-you need to use I/O redirection in your shell to read/write from/to files. You can also
-use a process substitution pattern to pass the output as a file to another process.
+By default template files are read from the standard input and rendered into
+the standard output, so you can use I/O redirection in your shell to read/write
+from/to files. You can also use a process substitution pattern to pass the
+output as a file to another process.
+
+Input and output files can be also provided as argument to the program.
 
 ### Examples
 
 ```bash
 # work with files
+$ resolvme template out
+
+# work with files (with I/O redirection)
 $ resolvme < template > out
 
 # work with helm
