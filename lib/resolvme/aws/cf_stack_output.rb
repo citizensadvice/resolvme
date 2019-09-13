@@ -8,6 +8,10 @@ module Resolvme
     class CloudformationStackOutput
       include AwsClientOptions
 
+      def initialize
+        @cache = {}
+      end
+
       class OutputNotFoundError < ResolvmeError;end
       # Returns a single stack output.
       #
@@ -28,10 +32,8 @@ module Resolvme
       # @param region [String] AWS region
       # @return [Array<Aws::CloudFormation::Types::Output>] Stack outputs
       def get_stack_outputs(stack_name, stack_region = nil)
-        stack = aws_client(:CloudFormation, stack_region).describe_stacks(stack_name: stack_name).stacks.first
-        stack.outputs
+        @cache[stack_name] ||= aws_client(:CloudFormation, stack_region).describe_stacks(stack_name: stack_name).stacks.first.outputs
       end
-
     end
   end
 end
