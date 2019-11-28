@@ -1,5 +1,7 @@
 # Resolvme
 
+[![Travis Build Status](https://travis-ci.org/citizensadvice/resolvme.svg?branch=master)](https://travis-ci.org/citizensadvice/resolvme)
+
 Resolvme is a collection of resolver that can be used:
 
 - with the command line tool to render ERB based templates
