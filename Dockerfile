@@ -1,4 +1,4 @@
-FROM ruby:2.6.2-alpine
+FROM ruby:2.6.5-alpine
 
 RUN apk add --no-cache git && \
     gem install bundler
