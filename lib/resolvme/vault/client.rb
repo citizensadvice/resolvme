@@ -33,27 +33,11 @@ module Resolvme
       end
 
       # Retrieves the secret's value.
-      # Handles both KV1 and KV2 secret engines.
+      # Handles KV2 secret engine.
       # @param secret [Vault::Secret] Vault secret
       # @return [Object] the secret value
       def payload(secret)
-        kv2_secret?(secret) ? secret.data[:data] : secret.data
-      end
-
-      # Checks whether the specified mount is versioned.
-      # @param mount [Symbol] the mount path. Must end in /
-      def versioned_mount?(mount)
-        mount_info[mount.to_sym].dig(:options, :version) ? true : false
-      end
-
-      # retrieves information about all mounts
-      def mount_info
-        vault.get "v1/sys/mounts"
-      end
-
-      # @return [TrueClass,FalseClass] true if the secret is KV2 and false otherwise
-      def kv2_secret?(secret)
-        secret.data.dig(:metadata, :version)
+        secret.data[:data]
       end
 
       # Initialize the object. The VAULT_GITHUB_TOKEN environment variable can
@@ -69,33 +53,17 @@ module Resolvme
 
       # Fetches the secret from the cache or from Vault if not cached.
       def read_secret(path)
-        path = update_path_if_kv2(path)
+        path = update_path(path)
         @cache[path] ||= @vault.logical.read(path)
       end
 
-      # Updates the Vault path to include data/ if
-      # if it is mounted on a KV v2 mount and doesn't include data/ already
-      def update_path_if_kv2(path)
-        if versioned_path?(path) && path_nodes(path)[1] != "data"
+      # Updates the Vault path to include data/
+      def update_path(path)
+        if path_nodes(path)[1] != "data"
           return path_nodes(path).insert(1, "data").join("/")
         end
 
         path
-      end
-
-      # Checks if the given path is on a mount using the KV2 engine
-      # and caches the result in #cache
-      def versioned_path?(path)
-        mount = mount_point(path)
-        # cache mount checks for significant speedup
-        @cache[mount] ||= versioned_mount?(mount)
-        @cache[mount]
-      end
-
-      # @return [String] the mount point of the path.
-      # This is the root node of the path including /
-      def mount_point(path)
-        path_nodes(path).first + "/"
       end
 
       # @return [Array] an array with the nodes of the path, e.g.
