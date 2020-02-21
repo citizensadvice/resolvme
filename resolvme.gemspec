@@ -4,8 +4,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |spec|
   spec.name          = "resolvme"
   spec.version       = "0.2.0"
-  spec.authors       = ["Michele Sorcinelli"]
-  spec.email         = ["michele.sorcinelli@citizensadvice.org.uk"]
+  spec.authors       = ["Citizens Advice"]
+  spec.email         = ["ca-devops@citizensadvice.org.uk"]
 
   spec.summary       = "Resolvers"
   spec.description   = "Resolvers"
