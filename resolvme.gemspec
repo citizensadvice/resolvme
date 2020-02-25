@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "resolvme"
-  spec.version       = "0.2.0"
+  spec.version       = "0.3.0"
   spec.authors       = ["Citizens Advice"]
   spec.email         = ["ca-devops@citizensadvice.org.uk"]
 
@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = "~> 2.6.5"
 
-  spec.add_development_dependency "bundler", "~> 2.0.1"
+  spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake", "~> 12.0"
   spec.add_development_dependency "rspec", "~> 3.8"
   spec.add_development_dependency "rdoc"
