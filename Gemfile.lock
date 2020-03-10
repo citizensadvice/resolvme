@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    resolvme (0.3.0)
+    resolvme (0.3.1)
       aws-sdk-acm (~> 1.24)
       aws-sdk-cloudformation (~> 1.24)
       vault (>= 0.12, < 0.13)
@@ -10,14 +10,14 @@ GEM
   remote: https://rubygems.org/
   specs:
     aws-eventstream (1.0.3)
-    aws-partitions (1.278.0)
-    aws-sdk-acm (1.27.0)
+    aws-partitions (1.281.0)
+    aws-sdk-acm (1.28.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-cloudformation (1.30.0)
+    aws-sdk-cloudformation (1.31.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-core (3.90.1)
+    aws-sdk-core (3.91.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
       aws-sigv4 (~> 1.1)
