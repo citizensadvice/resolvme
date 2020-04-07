@@ -11,5 +11,5 @@ COPY --chown=app ./ /app
 USER app
 WORKDIR /app
 
-RUN bundle install --without development --path vendor/
+RUN bundle install --without development
 CMD ["bundle", "exec", "resolvme"]
