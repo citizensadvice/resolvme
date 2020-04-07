@@ -1,7 +1,6 @@
 FROM ruby:2.6.5-alpine
 
-RUN apk add --no-cache git && \
-    gem install bundler
+RUN apk add --no-cache git
 
 RUN adduser -D app && \
     mkdir /app && \
@@ -11,5 +10,5 @@ COPY --chown=app ./ /app
 USER app
 WORKDIR /app
 
-RUN bundle install --without development
+RUN gem install bundler --no-doc && bundle install --without development
 CMD ["bundle", "exec", "resolvme"]
