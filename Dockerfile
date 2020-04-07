@@ -7,9 +7,9 @@ RUN adduser -D app && \
     mkdir /app && \
     chown app: /app
 
+COPY --chown=app ./ /app
 USER app
 WORKDIR /app
-COPY ./ /app
 
 RUN bundle install --without development --path vendor/
 CMD ["bundle", "exec", "resolvme"]
