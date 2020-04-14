@@ -41,7 +41,7 @@ node('docker && awsaccess') {
         keepAll: false,
         reportDir: 'doc',
         reportFiles: 'index.html',
-        reportName: 'Loki documentation'
+        reportName: 'Resolvme documentation'
       ])
     }
   }
