@@ -5,4 +5,4 @@ RUN apk update && \
     apk add libc-dev gcc make
 
 USER app
-RUN bundle install --with development
+RUN bundle install --with development test

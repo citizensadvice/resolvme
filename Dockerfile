@@ -10,5 +10,5 @@ COPY --chown=app ./ /app
 USER app
 WORKDIR /app
 
-RUN gem install bundler --no-doc && bundle install --without development
+RUN gem install bundler --no-doc && bundle install --without development test
 CMD ["bundle", "exec", "resolvme"]
