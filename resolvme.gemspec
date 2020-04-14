@@ -37,7 +37,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "yard", ">= 0.9", "< 0.10"
   spec.add_development_dependency "pry", ">= 0.12", "< 0.13"
   spec.add_development_dependency "pry-byebug", "~> 3.8"
-  spec.add_development_dependency 'rubocop', '~> 0.79.0'
   spec.add_dependency "vault", ">= 0.12", "< 0.13"
   spec.add_dependency "aws-sdk-cloudformation", "~> 1.24"
   spec.add_dependency "aws-sdk-acm", "~> 1.24"
