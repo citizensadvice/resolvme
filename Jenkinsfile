@@ -12,7 +12,7 @@ node('docker && awsaccess') {
 
   dockerTestImage.inside() {
     stage('Run linter') {
-      sh 'bundle exec rubocop --cache false bin lib spec || true'
+      sh 'bundle exec rubocop --fail-level=F'
     }
 
     stage('Run unit tests') {
