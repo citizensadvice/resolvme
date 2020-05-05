@@ -12,7 +12,7 @@ PATH
     resolvme (0.3.2)
       aws-sdk-acm (~> 1.24)
       aws-sdk-cloudformation (~> 1.24)
-      vault (>= 0.12, < 0.13)
+      vault (~> 0.12.0)
 
 GEM
   remote: https://rubygems.org/
@@ -90,15 +90,14 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 2.0)
   citizens-advice-style!
-  pry (>= 0.12, < 0.13)
+  pry (~> 0.12.0)
   pry-byebug (~> 3.8)
   rake (~> 12.0)
   rdoc (~> 6.2)
   resolvme!
   rspec (~> 3.8)
-  rubocop
-  simplecov
-  yard (>= 0.9, < 0.10)
+  simplecov (~> 0.18.0)
+  yard (~> 0.9.0)
 
 BUNDLED WITH
    2.1.4
