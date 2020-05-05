@@ -32,6 +32,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.required_ruby_version = "~> 2.6.5"
 
   spec.add_development_dependency "bundler", "~> 2.0"
+  spec.add_development_dependency "nexus", "~> 1.4"
   spec.add_development_dependency "pry", "~> 0.12.0"
   spec.add_development_dependency "pry-byebug", "~> 3.8"
   spec.add_development_dependency "rake", "~> 12.0"
