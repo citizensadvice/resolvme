@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.3.3](https://github.com/citizensadvice/resolvme/tree/v0.3.3) (2020-05-06)
+
+[Full Changelog](https://github.com/citizensadvice/resolvme/compare/v0.3.2...v0.3.3)
+
+**Merged pull requests:**
+
+- DP-75 enable private gem server [\#18](https://github.com/citizensadvice/resolvme/pull/18) ([simonwgill](https://github.com/simonwgill))
+
 ## [v0.3.2](https://github.com/citizensadvice/resolvme/tree/v0.3.2) (2020-04-22)
 
 [Full Changelog](https://github.com/citizensadvice/resolvme/compare/v0.3.1...v0.3.2)
@@ -21,11 +29,7 @@
 
 ## [v0.3.0](https://github.com/citizensadvice/resolvme/tree/v0.3.0) (2020-02-25)
 
-[Full Changelog](https://github.com/citizensadvice/resolvme/compare/list...v0.3.0)
-
-## [list](https://github.com/citizensadvice/resolvme/tree/list) (2020-02-21)
-
-[Full Changelog](https://github.com/citizensadvice/resolvme/compare/v0.2.0...list)
+[Full Changelog](https://github.com/citizensadvice/resolvme/compare/v0.2.0...v0.3.0)
 
 **Merged pull requests:**
 
