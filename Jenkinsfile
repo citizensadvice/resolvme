@@ -1,5 +1,4 @@
 #!/usr/bin/env groovy
-@Library("ca-global-lib@DP-132_push_gem_releases") _
 
 node('docker && awsaccess') {
   cleanWorkspace()
