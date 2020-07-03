@@ -41,5 +41,7 @@ node('docker && awsaccess') {
         reportName: 'Resolvme documentation'
       ])
     }
+
+    nexusGemRelease()
   }
 }
