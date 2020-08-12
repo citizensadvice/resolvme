@@ -33,7 +33,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "nexus", "~> 1.4"
-  spec.add_development_dependency "pry", "~> 0.12.0"
+  spec.add_development_dependency "pry", "~> 0.13.0"
   spec.add_development_dependency "pry-byebug", "~> 3.8"
   spec.add_development_dependency "rake", "~> 12.0"
   spec.add_development_dependency "rdoc", "~> 6.2"
@@ -42,5 +42,5 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.add_development_dependency "yard", "~> 0.9.0"
   spec.add_dependency "aws-sdk-acm", "~> 1.24"
   spec.add_dependency "aws-sdk-cloudformation", "~> 1.24"
-  spec.add_dependency "vault", "~> 0.12.0"
+  spec.add_dependency "vault", "~> 0.15.0"
 end
