@@ -1,10 +1,10 @@
 GIT
   remote: https://github.com/citizensadvice/citizens-advice-style-ruby
-  revision: 940373ee9b16635bea3b35b49a3907a11cd09a5b
-  tag: v0.2.5
+  revision: bbc54178ddfd6fc94a57fd9f6d6ff0520bfdcd99
+  tag: v0.3.0
   specs:
-    citizens-advice-style (0.2.5)
-      rubocop (~> 0.80.0)
+    citizens-advice-style (0.3.0)
+      rubocop (~> 0.85.1)
 
 PATH
   remote: .
@@ -19,25 +19,24 @@ GEM
   specs:
     ast (2.4.1)
     aws-eventstream (1.1.0)
-    aws-partitions (1.354.0)
-    aws-sdk-acm (1.34.0)
+    aws-partitions (1.368.0)
+    aws-sdk-acm (1.36.0)
       aws-sdk-core (~> 3, >= 3.99.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-cloudformation (1.41.0)
+    aws-sdk-cloudformation (1.42.0)
       aws-sdk-core (~> 3, >= 3.99.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-core (3.104.3)
+    aws-sdk-core (3.105.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
       aws-sigv4 (~> 1.1)
       jmespath (~> 1.0)
-    aws-sigv4 (1.2.1)
+    aws-sigv4 (1.2.2)
       aws-eventstream (~> 1, >= 1.0.2)
     byebug (11.1.3)
     coderay (1.1.3)
     diff-lcs (1.4.4)
     docile (1.3.2)
-    jaro_winkler (1.5.4)
     jmespath (1.4.0)
     method_source (1.0.0)
     nexus (1.4.0)
@@ -53,6 +52,7 @@ GEM
     rainbow (3.0.0)
     rake (12.3.3)
     rdoc (6.2.1)
+    regexp_parser (1.7.1)
     rexml (3.2.4)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
@@ -67,20 +67,23 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.3)
-    rubocop (0.80.1)
-      jaro_winkler (~> 1.5.1)
+    rubocop (0.85.1)
       parallel (~> 1.10)
       parser (>= 2.7.0.1)
       rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.7)
       rexml
+      rubocop-ast (>= 0.0.3)
       ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 1.7)
+      unicode-display_width (>= 1.4.0, < 2.0)
+    rubocop-ast (0.4.0)
+      parser (>= 2.7.1.4)
     ruby-progressbar (1.10.1)
     simplecov (0.18.5)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
     simplecov-html (0.12.2)
-    unicode-display_width (1.6.1)
+    unicode-display_width (1.7.0)
     vault (0.15.0)
       aws-sigv4
     yard (0.9.25)
