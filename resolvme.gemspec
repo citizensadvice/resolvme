@@ -29,7 +29,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.executables   = ["resolvme"]
   spec.require_paths = ["lib"]
 
-  spec.required_ruby_version = "~> 2.6.5"
+  spec.required_ruby_version = "~> 2.7"
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "nexus", "~> 1.4"
