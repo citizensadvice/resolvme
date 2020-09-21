@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    resolvme (0.3.5)
+    resolvme (0.3.5.pre)
       aws-sdk-acm (~> 1.24)
       aws-sdk-cloudformation (~> 1.24)
       vault (~> 0.15.0)
