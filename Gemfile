@@ -6,5 +6,5 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 gemspec
 
 group :test, :development do
-  gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v0.2.5"
+  gem "citizens-advice-style", github: "citizensadvice/citizens-advice-style-ruby", tag: "v0.4.0"
 end
