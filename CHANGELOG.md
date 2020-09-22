@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.3.5](https://github.com/citizensadvice/resolvme/tree/v0.3.5) (2020-09-22)
+
+[Full Changelog](https://github.com/citizensadvice/resolvme/compare/v0.3.4...v0.3.5)
+
+**Merged pull requests:**
+
+- DP-194 citizens advice style ruby upgrade [\#21](https://github.com/citizensadvice/resolvme/pull/21) ([simonwgill](https://github.com/simonwgill))
+
 ## [v0.3.4](https://github.com/citizensadvice/resolvme/tree/v0.3.4) (2020-08-12)
 
 [Full Changelog](https://github.com/citizensadvice/resolvme/compare/v0.3.3...v0.3.4)
@@ -16,7 +24,6 @@
 **Merged pull requests:**
 
 - DP-75 enable private gem server [\#18](https://github.com/citizensadvice/resolvme/pull/18) ([simonwgill](https://github.com/simonwgill))
-- DP-45: update ruby to 2.6.5 [\#10](https://github.com/citizensadvice/resolvme/pull/10) ([zhelyan](https://github.com/zhelyan))
 
 ## [v0.3.2](https://github.com/citizensadvice/resolvme/tree/v0.3.2) (2020-04-22)
 
@@ -48,6 +55,7 @@
 **Merged pull requests:**
 
 - DP-49: Vault: drop support for KV1 secret engine [\#11](https://github.com/citizensadvice/resolvme/pull/11) ([michelesr](https://github.com/michelesr))
+- DP-45: update ruby to 2.6.5 [\#10](https://github.com/citizensadvice/resolvme/pull/10) ([zhelyan](https://github.com/zhelyan))
 - Add cache to stack output resolver [\#9](https://github.com/citizensadvice/resolvme/pull/9) ([michelesr](https://github.com/michelesr))
 - fix\(vault client\) allow for leading / in vault path [\#8](https://github.com/citizensadvice/resolvme/pull/8) ([ruthwells](https://github.com/ruthwells))
 - Add cli-args [\#6](https://github.com/citizensadvice/resolvme/pull/6) ([michelesr](https://github.com/michelesr))
