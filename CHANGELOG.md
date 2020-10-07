@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.6](https://github.com/citizensadvice/resolvme/tree/0.3.6) (2020-10-07)
+
+[Full Changelog](https://github.com/citizensadvice/resolvme/compare/v0.3.5...0.3.6)
+
+**Merged pull requests:**
+
+- DP-188: ruby 2.7 \[DM\] [\#22](https://github.com/citizensadvice/resolvme/pull/22) ([zhelyan](https://github.com/zhelyan))
+
 ## [v0.3.5](https://github.com/citizensadvice/resolvme/tree/v0.3.5) (2020-09-22)
 
 [Full Changelog](https://github.com/citizensadvice/resolvme/compare/v0.3.4...v0.3.5)
