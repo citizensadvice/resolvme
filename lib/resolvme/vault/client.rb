@@ -22,9 +22,6 @@ module Resolvme
       # @return [Object] field value
       def read_secret_field(path, key)
         secret = read_secret(path)
-        raise VaultSecretNotFound,
-              "Secret #{path} not found" unless secret
-
         value = payload(secret)[key.to_sym]
 
         raise VaultKeyNotFound,
@@ -54,7 +51,10 @@ module Resolvme
       # Fetches the secret from the cache or from Vault if not cached.
       def read_secret(path)
         path = update_path(path)
-        @cache[path] ||= @vault.logical.read(path)
+        secret = @cache[path] ||= @vault.logical.read(path)
+        raise VaultSecretNotFound,
+              "Secret #{path} not found" unless secret
+        secret
       end
 
       # Updates the Vault path to include data/
