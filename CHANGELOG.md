@@ -1,8 +1,18 @@
 # Changelog
 
-## [0.3.6](https://github.com/citizensadvice/resolvme/tree/0.3.6) (2020-10-07)
+## [v0.3.7](https://github.com/citizensadvice/resolvme/tree/v0.3.7) (2021-10-07)
 
-[Full Changelog](https://github.com/citizensadvice/resolvme/compare/v0.3.5...0.3.6)
+[Full Changelog](https://github.com/citizensadvice/resolvme/compare/v0.3.6...v0.3.7)
+
+**Merged pull requests:**
+
+- DP-341: Fix read\_secret\(\) not raising exception on secret not found [\#25](https://github.com/citizensadvice/resolvme/pull/25) ([michelesr](https://github.com/michelesr))
+- Bump rdoc from 6.2.1 to 6.3.2 [\#24](https://github.com/citizensadvice/resolvme/pull/24) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rexml from 3.2.4 to 3.2.5 [\#23](https://github.com/citizensadvice/resolvme/pull/23) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [v0.3.6](https://github.com/citizensadvice/resolvme/tree/v0.3.6) (2020-10-07)
+
+[Full Changelog](https://github.com/citizensadvice/resolvme/compare/v0.3.5...v0.3.6)
 
 **Merged pull requests:**
 
@@ -67,19 +77,15 @@
 - Add cache to stack output resolver [\#9](https://github.com/citizensadvice/resolvme/pull/9) ([michelesr](https://github.com/michelesr))
 - fix\(vault client\) allow for leading / in vault path [\#8](https://github.com/citizensadvice/resolvme/pull/8) ([ruthwells](https://github.com/ruthwells))
 - Add cli-args [\#6](https://github.com/citizensadvice/resolvme/pull/6) ([michelesr](https://github.com/michelesr))
-
-## [v0.2.0](https://github.com/citizensadvice/resolvme/tree/v0.2.0) (2019-08-15)
-
-[Full Changelog](https://github.com/citizensadvice/resolvme/compare/fb1767f629d220203a232653c9592d9ac28215da...v0.2.0)
-
-**Merged pull requests:**
-
-- DEVOPS-2068: refactor\(vault\): handle kv2 secrets [\#7](https://github.com/citizensadvice/resolvme/pull/7) ([zhelyan](https://github.com/zhelyan))
 - update and pin gems [\#5](https://github.com/citizensadvice/resolvme/pull/5) ([zhelyan](https://github.com/zhelyan))
 - Use '-' as trim char [\#4](https://github.com/citizensadvice/resolvme/pull/4) ([michelesr](https://github.com/michelesr))
 - Add .travis.yml [\#3](https://github.com/citizensadvice/resolvme/pull/3) ([michelesr](https://github.com/michelesr))
 - Add Dockerfile [\#2](https://github.com/citizensadvice/resolvme/pull/2) ([michelesr](https://github.com/michelesr))
 - Add ACM resolver [\#1](https://github.com/citizensadvice/resolvme/pull/1) ([zhelyan](https://github.com/zhelyan))
+
+## [v0.2.0](https://github.com/citizensadvice/resolvme/tree/v0.2.0) (2019-08-15)
+
+[Full Changelog](https://github.com/citizensadvice/resolvme/compare/fb1767f629d220203a232653c9592d9ac28215da...v0.2.0)
 
 
 

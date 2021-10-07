@@ -27,8 +27,8 @@ module Resolvme
       private
 
       def aws_client_instance(service_id, region)
-        client_opts = {region: region, stub_responses: stub_responses, retry_limit: 10}.
-            delete_if{|_k,v| v.nil?}
+        client_opts = { region: region, stub_responses: stub_responses, retry_limit: 10 }
+                      .delete_if { |_k, v| v.nil? }
         klass = ::Aws.const_get "::Aws::#{service_id}::Client"
         klass.new(client_opts)
       end

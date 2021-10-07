@@ -12,6 +12,7 @@ module Resolvme
       class VaultKeyNotFound < ResolvmeError; end
 
       attr_reader :vault
+
       # Read the secret at the provided path and return the value
       # of the field with the provided key.
       #
@@ -24,8 +25,10 @@ module Resolvme
         secret = read_secret(path)
         value = payload(secret)[key.to_sym]
 
-        raise VaultKeyNotFound,
-              "Secret #{path} doesn't have field: #{key}" unless value
+        unless value
+          raise VaultKeyNotFound,
+                "Secret #{path} doesn't have field: #{key}"
+        end
         value
       end
 
@@ -52,16 +55,16 @@ module Resolvme
       def read_secret(path)
         path = update_path(path)
         secret = @cache[path] ||= @vault.logical.read(path)
-        raise VaultSecretNotFound,
-              "Secret #{path} not found" unless secret
+        unless secret
+          raise VaultSecretNotFound,
+                "Secret #{path} not found"
+        end
         secret
       end
 
       # Updates the Vault path to include data/
       def update_path(path)
-        if path_nodes(path)[1] != "data"
-          return path_nodes(path).insert(1, "data").join("/")
-        end
+        return path_nodes(path).insert(1, "data").join("/") if path_nodes(path)[1] != "data"
 
         path
       end
@@ -74,4 +77,3 @@ module Resolvme
     end
   end
 end
-

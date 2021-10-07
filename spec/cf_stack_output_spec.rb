@@ -8,14 +8,14 @@ RSpec.describe Resolvme::Aws::CloudformationStackOutput do
       stacks:
         [
           {
-            stack_name:    'foostack',
-            stack_status:  'CREATE_COMPLETE',
+            stack_name: "foostack",
+            stack_status: "CREATE_COMPLETE",
             creation_time: Time.now.utc,
-            outputs:       [{ output_key: 'Endpoint', output_value: 'bar' }]
+            outputs: [{ output_key: "Endpoint", output_value: "bar" }]
           }
         ]
     )
-    expect(subject.get_stack_output('foostack', 'Endpoint')).to eq('bar')
-    expect { subject.get_stack_output('foostack', 'SomeOutput') }.to raise_error(Resolvme::Aws::CloudformationStackOutput::OutputNotFoundError, "Stack output foostack/SomeOutput not found")
+    expect(subject.get_stack_output("foostack", "Endpoint")).to eq("bar")
+    expect { subject.get_stack_output("foostack", "SomeOutput") }.to raise_error(Resolvme::Aws::CloudformationStackOutput::OutputNotFoundError, "Stack output foostack/SomeOutput not found")
   end
 end

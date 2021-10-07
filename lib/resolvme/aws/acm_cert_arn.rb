@@ -22,7 +22,8 @@ module Resolvme
       def acm_arn(domain_name, region = nil)
         certs = domain_certificates(domain_name, region)
         raise CertificateNotFoundError, "Couldn't find a valid certificate for #{domain_name}" if certs.empty?
-        certs.sort_by(&:issued_at).last.certificate_arn
+
+        certs.max_by(&:issued_at).certificate_arn
       end
 
       # Retrieves and returns the details of the issued ACM certificates from AWS.
@@ -43,9 +44,9 @@ module Resolvme
       def domain_certificates(domain_name, region)
         acm_certificates(region).find_all do |cert|
           cert.domain_name == domain_name ||
-            cert.domain_name == ("*." + domain_name) ||
+            cert.domain_name == ("*.#{domain_name}") ||
             cert.subject_alternative_names.include?(domain_name) ||
-            cert.subject_alternative_names.include?("*." + domain_name)
+            cert.subject_alternative_names.include?("*.#{domain_name}")
         end
       end
     end

@@ -25,7 +25,9 @@ module Resolvme
       end
 
       # Expose bindings to be used by ERB or other programs
-      def get_binding; binding; end
+      def get_binding
+        binding
+      end
     end
   end
 end
